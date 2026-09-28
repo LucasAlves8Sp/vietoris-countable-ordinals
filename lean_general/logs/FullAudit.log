@@ -1,0 +1,36 @@
+VietorisOrdinals.ordinal_main (a : Ordinal.{0}) (hlo : ω < a) (hhi : a < ω_ 1) : MainClaim ↑(OrdinalSpace a)
+VietorisOrdinals.ordinal_full (a : Ordinal.{0}) (hlo : ω < a) (hhi : a < ω_ 1) :
+  MainClaim ↑(OrdinalSpace a) ∧ ¬Menger (K ↑(OrdinalSpace a))
+VietorisOrdinals.second_countable.{u} (X : Type u) [TopologicalSpace X] [SecondCountableTopology X] :
+  SecondCountableTopology (K X)
+VietorisOrdinals.ordinal_subsets_countable (a : Ordinal.{0}) (hhi : a < ω_ 1) (C : Set ↑(OrdinalSpace a)) : #↑C ≤ ℵ₀
+def VietorisOrdinals.K.{u} : (X : Type u) → [inst : TopologicalSpace X] → Type (max 0 u) :=
+fun X [TopologicalSpace X] => { f // IsCompact (range f) }
+def VietorisOrdinals.basic.{u} : (X : Type u) → Set X → Finset ℕ → (ℕ → Set X) → Set (ℕ → X) :=
+fun X U F V => {f | range f ⊆ U ∧ ∀ i ∈ F, f i ∈ V i}
+def VietorisOrdinals.generators.{u} : (X : Type u) → [inst : TopologicalSpace X] → Set (Set (ℕ → X)) :=
+fun X [TopologicalSpace X] => {A | ∃ U F V, IsOpen U ∧ (∀ i ∈ F, IsOpen (V i)) ∧ A = basic X U F V}
+def VietorisOrdinals.powerTopology.{u} : (X : Type u) → [inst : TopologicalSpace X] → TopologicalSpace (ℕ → X) :=
+fun X [TopologicalSpace X] => TopologicalSpace.generateFrom (generators X)
+def VietorisOrdinals.kTopology.{u} : (X : Type u) → [inst : TopologicalSpace X] → TopologicalSpace (K X) :=
+fun X [TopologicalSpace X] => TopologicalSpace.induced (fun f => ↑f) (powerTopology X)
+def VietorisOrdinals.ordinalTopology : TopologicalSpace Ordinal.{0} :=
+Preorder.topology Ordinal.{0}
+@[reducible] def VietorisOrdinals.OrdinalSpace : Ordinal.{0} → Set Ordinal.{0} :=
+fun a => Iio a
+def VietorisOrdinals.MainClaim.{u} : (X : Type u) → [inst : TopologicalSpace X] → Prop :=
+fun X [TopologicalSpace X] => SecondCountableTopology (K X) ∧ IsLindelof univ ∧ ¬IsSigmaCompact univ
+def VietorisOrdinals.Menger.{u} : (Y : Type u) → [inst : TopologicalSpace Y] → Prop :=
+fun Y [TopologicalSpace Y] =>
+  ∀ (U : ℕ → Set (Set Y)),
+    (∀ (n : ℕ), ∀ s ∈ U n, IsOpen s) →
+      (∀ (n : ℕ) (x : Y), ∃ s ∈ U n, x ∈ s) → ∃ F, (∀ (n : ℕ), ∀ s ∈ F n, s ∈ U n) ∧ ∀ (x : Y), ∃ n, ∃ s ∈ F n, x ∈ s
+'VietorisOrdinals.second_countable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'VietorisOrdinals.not_sigmaCompact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'VietorisOrdinals.not_menger' depends on axioms: [propext, Classical.choice, Quot.sound]
+'VietorisOrdinals.ordinal_main' depends on axioms: [propext, Classical.choice, Quot.sound]
+'VietorisOrdinals.ordinal_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'VietorisOrdinals.ordinal_subsets_countable' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+EXIT_CODE=0
+ELAPSED_SECONDS=75.74
