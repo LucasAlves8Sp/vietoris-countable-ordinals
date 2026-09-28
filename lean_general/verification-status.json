@@ -1,0 +1,91 @@
+{
+  "status": "VERIFIED",
+  "date": "2026-09-28",
+  "author": "Lucas Alves de Almeida",
+  "email": "lucasdeirva8x@gmail.com",
+  "formalization_prepared_by": "ChatGPT-Astra, under the direction of Lucas Alves de Almeida",
+  "lean_version": "Lean (version 4.19.0, x86_64-w64-windows-gnu, commit 6caaee842e94, Release)",
+  "mathlib_commit": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
+  "audit_exit_code": 0,
+  "compiler_arguments": [
+    "-j1",
+    "<module>.lean",
+    "-o",
+    "<module>.olean"
+  ],
+  "dependency_resolution": "LEAN_PATH to the recorded project build directory and cached pinned dependencies",
+  "theorems": {
+    "VietorisOrdinals.second_countable": "The compact-range Vietoris power with countable index is second-countable for every second-countable ground space.",
+    "VietorisOrdinals.not_sigmaCompact": "An injective enumeration of a compact convergent-sequence-type set with isolated finite values yields non-sigma-compactness, by the delayed diagonal.",
+    "VietorisOrdinals.not_menger": "Under the same structural hypotheses, the compact-range power fails the standard Menger selection property for arbitrary open covers.",
+    "VietorisOrdinals.ordinal_main": "For every actual ordinal between omega and omega one, the specified compact-range power is second-countable, Lindelof and not sigma-compact.",
+    "VietorisOrdinals.ordinal_full": "The complete principal ordinal theorem, including failure of the Menger property.",
+    "VietorisOrdinals.ordinal_subsets_countable": "Every subset of each countable ordinal interval has cardinality at most aleph zero."
+  },
+  "axioms": {
+    "VietorisOrdinals.second_countable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "VietorisOrdinals.not_sigmaCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "VietorisOrdinals.not_menger": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "VietorisOrdinals.ordinal_main": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "VietorisOrdinals.ordinal_full": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "VietorisOrdinals.ordinal_subsets_countable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "principal_statement": "For every a : Ordinal.{0} with omega0 < a and a < omega 1, K(Set.Iio a) is second-countable, Lindelof, not sigma-compact, and not Menger.",
+  "principal_hypotheses": [
+    "omega0 < a",
+    "a < omega 1"
+  ],
+  "ground_topology": "Order topology on actual mathlib Ordinal.{0}, inherited by Set.Iio a",
+  "carrier": "Maps Nat -> Set.Iio a whose actual ranges are compact",
+  "power_topology": "Induced from generateFrom of the source range-plus-finite-coordinate basic sets",
+  "scope_notes": [
+    "The complete principal countable-ordinal theorem, including non-Menger, is checked.",
+    "The formal carrier uses Nat directly; the source default-cardinal-supremum expression is interpreted in the manuscript. The cardinal bound on every subset is formalized.",
+    "The closed-subspace transfer proposition has a written mathematical proof but is not separately formalized.",
+    "The uncountable classification is attributed to the reference and is outside this new formalization.",
+    "This is a local verification record, not independent peer review or an institutional certificate."
+  ],
+  "audit_log_sha256": "1cefae48b628a40bdd34c5e736dad2532d188789511106037610d22eefe62507",
+  "manifest_sha256": "c09a1406ef6a2e1d24d68eba05f06f21926f51a66c3ee345a814844a3f6be828",
+  "source_sha256": {
+    "FullAudit.lean": "03a9699d481e38d73969e913a8862f739e502e1b88b6180579c355fd399bbdea",
+    "lake-manifest.json": "d10cd4eb6499f9900318db0ca2d1acfdf54478dab6d6b7bc77b0fde7e279ae23",
+    "lakefile.lean": "5ff1773324e9bee1f777d3c7be1b017f7ad46f13fb789a001944b2836a564ad6",
+    "lean-toolchain": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+    "README.md": "ae93cff0c2b01ff70c16a3ed63f04b7b975360202bf924a5fa80777d74a00550",
+    "verify.ps1": "f2cdd05f61b36bc9aba807886db9170f90d797931f1df84f5e0cc0b5fac7aced",
+    "VietorisOrdinals/Countability.lean": "5d60950d9d1e63df78ced23a8d9487afbd60e100a832cf637d899e01579d7cf5",
+    "VietorisOrdinals/Diagonal.lean": "25e0602340c34c91fc907fdfa00577fb0c50cf6c1f00e6d4e1b0536ab6d82751",
+    "VietorisOrdinals/Menger.lean": "f4b5e2b3f00de7ffdb4d07fb7cf2eeb667bb99c46ee81e86dd5c743eabe4cea3",
+    "VietorisOrdinals/Model.lean": "0b773d8f35ca79b8472493edcdbb8ded97c27ecce96d328b25e09ba9d8859f26",
+    "VietorisOrdinals/Obstruction.lean": "82d642e528bbe36b7002482b8779771c82d25b57074bf47d97954b78bfe91abf",
+    "VietorisOrdinals/Ordinals.lean": "0535fe44f8887cdf9db62f6ee73e77017f2f8fdf3198d03eb503c20849316cc2",
+    "VietorisOrdinals/Results.lean": "2c75c6dcb7da6585679a26fb1fccf2c774192490867c777e3d8acaaf170cd9e5",
+    "VietorisOrdinals.lean": "767248ba5f4f02c88acc4056090c38e4fadf72cc63b07c9a5a0a7334ca996fdb"
+  },
+  "reference": "Caruvana and Holshouser, arXiv:2507.17936v3, Definitions 1.8/1.14 and Question 1, p. 11"
+}
