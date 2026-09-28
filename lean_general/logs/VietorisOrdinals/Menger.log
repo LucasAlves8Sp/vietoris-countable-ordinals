@@ -1,0 +1,8 @@
+VietorisOrdinals\Menger.lean:35:0: warning: automatically included section variable(s) unused in theorem 'VietorisOrdinals.badCover_covers':
+  [T2Space X]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [T2Space X] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+
+EXIT_CODE=0
+ELAPSED_SECONDS=360.21
