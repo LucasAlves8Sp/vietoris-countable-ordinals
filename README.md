@@ -18,20 +18,13 @@ This manuscript and Lean 4 project address the full stated interval in Question 
 
 ## Why the interval follows from the first case
 
-The revised paper makes the closed-subspace transfer central (Proposition 3.1, formerly Proposition 5.1). At a fixed index omega, a closed inclusion A into X induces a closed embedding of K(A, ord, omega) into K(X, ord, omega).
+The revised paper makes the closed-subspace transfer central (Proposition 4.1; Proposition 5.1 in the earlier draft). At a fixed index omega, a closed inclusion A into X induces a closed embedding of K(A, ord, omega) into K(X, ord, omega).
 
 For every ordinal in the stated interval, [0, omega] is closed and homeomorphic to omega + 1, and both default indexing cardinals equal omega. The earlier non-sigma-compactness theorem therefore transfers immediately, because closed subspaces of sigma-compact spaces are sigma-compact. A general countable-base theorem gives Lindelofness. The self-contained delayed diagonal is retained as a second proof and yields failure of the Menger property.
 
 The earlier project is [vietoris-omega-one](https://github.com/LucasAlves8Sp/vietoris-omega-one).
 
 ## Lean verification
-
-### Complete modular recheck (30 September 2026)
-
-All eight unchanged original Lean modules and `FullAudit.lean` were recompiled successfully from fresh project outputs. The six axiom audits again contain only `propext`, `Classical.choice`, and `Quot.sound`. This completes the previously resource-limited modular recheck. The pinned compiler was invoked directly; compiled pinned dependencies were reused. This is additional local AI-assisted verification, not independent human peer review.
-
-See the [new verification record and complete logs](RECHECK-2026-09-30.md), including source hashes, dependency revisions, timings and precise scope. The original records below are preserved.
-
 
 The principal declaration is `VietorisOrdinals.ordinal_full`. It quantifies over actual mathlib ordinals and has only the two inequalities `omega < a` and `a < omega one` as mathematical hypotheses. The formal carrier consists of maps from the natural numbers with genuinely compact image, with the source's range-plus-finite-coordinate topology.
 
